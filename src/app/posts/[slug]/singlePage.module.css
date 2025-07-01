@@ -68,6 +68,27 @@
   margin-bottom: 20px;
 }
 
+.viewsBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: #f3f4f6;
+  color: #444;
+  font-size: 14px;
+  font-weight: 400;
+  border-radius: 6px;
+  padding: 2px 10px 2px 7px;
+  margin-top: 6px;
+  width: fit-content;
+}
+.viewsIcon {
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  vertical-align: middle;
+  color: #888;
+}
+
 @media screen and (max-width: 1536px) {
   .title {
     font-size: 54px;
