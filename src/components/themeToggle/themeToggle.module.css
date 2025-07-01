@@ -1,17 +1,68 @@
-.container {
-  width: 40px;
-  height: 20px;
-  border-radius: 50px;
-  cursor: pointer;
+.toggleBtn {
+  position: relative;
+  width: 48px;
+  height: 28px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  position: relative;
+  border-radius: 9999px;
+  border: 1.5px solid #353b4a;
+  background: #23283a;
+  cursor: pointer;
+  transition: background 0.3s, border 0.3s, box-shadow 0.2s;
+  padding: 0;
+  outline: none;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.04);
 }
-
-.ball{
-  width: 15px;
-  height: 15px;
-  border-radius: 50%;
+.toggleBtn.dark {
+  background: #23283a;
+  border-color: #3b4252;
+}
+.toggleBtn.light {
+  background: #f4f4f5;
+  border-color: #e5e7eb;
+}
+.toggleBtn:focus, .toggleBtn:hover {
+  box-shadow: 0 2px 12px rgba(80,80,120,0.10);
+}
+.icon {
   position: absolute;
+  left: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 18px;
+  z-index: 2;
+  pointer-events: none;
+}
+.ball {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.10);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  transition: transform 0.3s cubic-bezier(.4,0,.2,1), background 0.3s, color 0.3s;
+  background: #fff;
+  color: #f59e42;
+  padding: 0 2px;
+}
+.toggleBtn.dark .ball {
+  background: #111827;
+  color: #facc15;
+}
+.toggleBtn.light .ball {
+  background: #fff;
+  color: #f59e42;
+}
+/* Ball movement: 48px (toggle width) - 22px (ball width) - 6px (2*3px margin) = 20px */
+/* So translateX(20px) for rightmost position */
+.toggleBtn .ball {
+  left: 3px;
+}
+.ball:active {
+  transform: scale(0.96) !important;
 }
