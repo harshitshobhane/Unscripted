@@ -5,6 +5,7 @@ import Footer from "../components/footer/Footer";
 import { ThemeContextProvider } from "../context/ThemeContext";
 import ThemeProvider from "../providers/ThemeProvider";
 import AuthProvider from "../providers/AuthProvider";
+import Head from "next/head";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -42,6 +43,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <Head>
+        <link rel="icon" href="/logo.ico" />
+      </Head>
       <body className={inter.className}>
         <AuthProvider>
           <ThemeContextProvider>
