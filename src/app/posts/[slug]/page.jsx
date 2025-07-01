@@ -4,7 +4,12 @@ import Image from "next/image";
 import Comments from "../../../components/comments/Comments";
 
 const getData = async (slug) => {
-  const res = await fetch(`/api/posts/${slug}`, {
+  // Use the Vercel-provided URL or fallback to localhost for dev
+  const baseUrl =
+    process.env.NEXT_PUBLIC_BASE_URL ||
+    process.env.VERCEL_URL && `https://${process.env.VERCEL_URL}` ||
+    "http://localhost:3000";
+  const res = await fetch(`${baseUrl}/api/posts/${slug}`, {
     cache: "no-store",
   });
 
