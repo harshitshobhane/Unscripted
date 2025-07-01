@@ -8,7 +8,8 @@ import { useSession } from "next-auth/react";
 import { useState } from "react";
 
 const fetcher = async (url) => {
-  const res = await fetch(url);
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "";
+  const res = await fetch(`${baseUrl}/api/comments?postSlug=${url}`);
 
   const data = await res.json();
 
