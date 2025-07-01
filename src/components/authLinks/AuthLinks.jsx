@@ -71,10 +71,15 @@ const AuthLinks = ({ userMenuOnly = false }) => {
   return (
     <div className={styles.authLinksContainer}>
       <div className={styles.burgerWrapper}>
-        <div className={styles.burger} onClick={() => setOpen(!open)}>
-          <div className={styles.line}></div>
-          <div className={styles.line}></div>
-          <div className={styles.line}></div>
+        <div
+          className={styles.burger + (open ? ' ' + styles.open : '')}
+          onClick={() => setOpen(!open)}
+          aria-label={open ? 'Close menu' : 'Open menu'}
+          tabIndex={0}
+        >
+          <div className={styles.line + ' ' + styles.line1}></div>
+          <div className={styles.line + ' ' + styles.line2}></div>
+          <div className={styles.line + ' ' + styles.line3}></div>
         </div>
       </div>
       {open && (

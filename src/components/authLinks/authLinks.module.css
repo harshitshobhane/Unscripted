@@ -9,12 +9,42 @@
   justify-content: space-between;
   cursor: pointer;
   display: flex !important;
+  position: relative;
+  z-index: 1100;
 }
 
 .line {
   width: 100%;
   height: 2px;
   background-color: var(--textColor);
+  border-radius: 2px;
+  transition: all 0.3s cubic-bezier(.4,0,.2,1);
+  position: absolute;
+  left: 0;
+}
+
+.line1 {
+  top: 0;
+}
+
+.line2 {
+  top: 7px;
+}
+
+.line3 {
+  top: 14px;
+}
+
+.burger.open .line1 {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.burger.open .line2 {
+  opacity: 0;
+}
+
+.burger.open .line3 {
+  transform: translateY(-7px) rotate(-45deg);
 }
 
 .responsiveMenu{
@@ -71,8 +101,10 @@
 .profileIcon {
   border-radius: 50%;
   background: #f3f4f6;
-  transition: box-shadow 0.15s, background 0.15s;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+  transition: box-shadow 0.15s, background 0.15s, border 0.15s;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.10);
+  border: 1.5px solid #e5e7eb;
+  color: #23283a;
 }
 
 /* Dark mode styles */
@@ -80,20 +112,23 @@
 body.dark .profileIcon {
   background: #23283a;
   border: 1.5px solid #3b4252;
-  color: #e5e7eb;
+  color: #f3f4f6;
+  box-shadow: 0 2px 8px rgba(20,20,40,0.18);
 }
 
 .profileBtn:focus .profileIcon,
 .profileBtn:hover .profileIcon {
-  box-shadow: 0 0 0 2px #a78bfa;
+  box-shadow: 0 0 0 2px #a78bfa, 0 2px 8px rgba(20,20,40,0.18);
   background: #e0e7ff;
+  border-color: #a78bfa;
 }
 :root[data-theme='dark'] .profileBtn:focus .profileIcon,
 :root[data-theme='dark'] .profileBtn:hover .profileIcon,
 body.dark .profileBtn:focus .profileIcon,
 body.dark .profileBtn:hover .profileIcon {
   background: #2d334a;
-  box-shadow: 0 0 0 2px #a78bfa;
+  box-shadow: 0 0 0 2px #a78bfa, 0 2px 8px rgba(20,20,40,0.18);
+  border-color: #a78bfa;
 }
 
 .dropdownMenu {
