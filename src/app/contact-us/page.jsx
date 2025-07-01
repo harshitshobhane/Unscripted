@@ -38,7 +38,7 @@ export default function ContactUsPage() {
           <Image src="/coding.png" alt="Contact" width={120} height={120} style={{ width: 'auto', height: 'auto' }} className="mb-6 rounded-full border-4 border-pink-200 dark:border-gray-700 shadow-lg" />
           <h1 className="text-4xl font-extrabold text-pink-700 dark:text-pink-300 mb-2 text-center">Contact Us</h1>
           <p className="text-lg text-gray-700 dark:text-gray-300 text-center mb-4 max-w-xs">
-            We'd love to hear from you! Fill out the form and our team will get back to you soon.
+            We&apos;d love to hear from you! Fill out the form and our team will get back to you soon.
           </p>
         </div>
         {/* Right Side: Form */}
