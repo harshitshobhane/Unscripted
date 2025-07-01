@@ -35,7 +35,7 @@ export default function ContactUsPage() {
       <div className="w-full max-w-4xl bg-white/90 dark:bg-zinc-900/90 rounded-3xl shadow-2xl flex flex-col md:flex-row overflow-hidden">
         {/* Left Side: Illustration & Info */}
         <div className="md:w-1/2 flex flex-col items-center justify-center p-8 bg-gradient-to-br from-pink-200/60 to-purple-200/60 dark:from-zinc-800/80 dark:to-zinc-900/80">
-          <Image src="/coding.png" alt="Contact" width={120} height={120} className="mb-6 rounded-full border-4 border-pink-200 dark:border-gray-700 shadow-lg" />
+          <Image src="/coding.png" alt="Contact" width={120} height={120} style={{ width: 'auto', height: 'auto' }} className="mb-6 rounded-full border-4 border-pink-200 dark:border-gray-700 shadow-lg" />
           <h1 className="text-4xl font-extrabold text-pink-700 dark:text-pink-300 mb-2 text-center">Contact Us</h1>
           <p className="text-lg text-gray-700 dark:text-gray-300 text-center mb-4 max-w-xs">
             We'd love to hear from you! Fill out the form and our team will get back to you soon.

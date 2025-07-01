@@ -42,7 +42,7 @@ export default function ContactFormDemo() {
       <div className="w-full max-w-lg bg-white dark:bg-zinc-900 border border-gray-200 dark:border-gray-700 rounded-3xl shadow-2xl p-10 flex flex-col items-center">
         <Image src="/coding.png" alt="Contact" width={64} height={64} className="mb-4 rounded-full border-4 border-pink-200 dark:border-gray-700" />
         <h2 className="text-3xl font-extrabold text-pink-700 dark:text-pink-400 mb-2 text-center">Contact Us</h2>
-        <p className="text-md text-gray-700 dark:text-gray-300 text-center mb-6">We'd love to hear from you! Fill out the form below and we'll get back to you soon.</p>
+        <p className="text-md text-gray-700 dark:text-gray-300 text-center mb-6">We&apos;d love to hear from you! Fill out the form below and we&apos;ll get back to you soon.</p>
         {submitted && (
           <div className="mb-4 p-3 rounded bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-300 text-center font-semibold animate-fade-in">
             Thank you! Your message has been sent.
