@@ -8,7 +8,7 @@
   flex-direction: column;
   justify-content: space-between;
   cursor: pointer;
-  display: none;
+  display: flex !important;
 }
 
 .line {
@@ -34,18 +34,31 @@
 }
 
 @media screen and (max-width: 640px) {
-  .burger {
-    display: flex;
-  }
-
+  /* .burger { display: flex; } -- now always flex, so this is not needed */
   .link{
     display: none;
   }
 }
 
+.authLinksContainer {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+.writeWrapper {
+  margin-right: 18px;
+  display: flex;
+  align-items: center;
+}
 .profileWrapper {
   position: relative;
-  display: inline-block;
+  display: flex;
+  align-items: center;
+}
+.burgerWrapper {
+  margin-left: 18px;
+  display: flex;
+  align-items: center;
 }
 .profileBtn {
   background: none;
@@ -58,12 +71,31 @@
 .profileIcon {
   border-radius: 50%;
   background: #f3f4f6;
-  transition: box-shadow 0.15s;
+  transition: box-shadow 0.15s, background 0.15s;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
 }
+
+/* Dark mode styles */
+:root[data-theme='dark'] .profileIcon,
+body.dark .profileIcon {
+  background: #23283a;
+  border: 1.5px solid #3b4252;
+  color: #e5e7eb;
+}
+
 .profileBtn:focus .profileIcon,
 .profileBtn:hover .profileIcon {
   box-shadow: 0 0 0 2px #a78bfa;
+  background: #e0e7ff;
 }
+:root[data-theme='dark'] .profileBtn:focus .profileIcon,
+:root[data-theme='dark'] .profileBtn:hover .profileIcon,
+body.dark .profileBtn:focus .profileIcon,
+body.dark .profileBtn:hover .profileIcon {
+  background: #2d334a;
+  box-shadow: 0 0 0 2px #a78bfa;
+}
+
 .dropdownMenu {
   position: absolute;
   right: 0;
