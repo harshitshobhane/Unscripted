@@ -5,13 +5,13 @@ import styles from "./featured.module.css";
 const fonts = [
   'Georgia, serif',
   '"Times New Roman", Times, serif',
-  'Merriweather, serif',
-  'Lora, serif',
-  'Roboto Slab, serif',
-  'Playfair Display, serif',
-  'Montserrat, sans-serif',
-  'Source Serif Pro, serif',
-  'Libre Baskerville, serif',
+  'var(--font-merriweather), Merriweather, serif',
+  'var(--font-lora), Lora, serif',
+  'var(--font-roboto-slab), "Roboto Slab", serif',
+  'var(--font-playfair-display), "Playfair Display", serif',
+  'var(--font-montserrat), Montserrat, sans-serif',
+  'Crimson Text, serif',
+  'var(--font-libre-baskerville), "Libre Baskerville", serif',
 ];
 
 const Featured = () => {
@@ -49,14 +49,18 @@ const Featured = () => {
           <h1 className={styles.postTitle}>Unleashing Creativity, One Story at a Time</h1>
           <p
             className={styles.postDesc}
-            style={{ fontFamily: fonts[fontIndex], transition: 'font-family 0.3s' }}
+            style={{ fontFamily: fonts[fontIndex], transition: 'font-family 0.3s ease' }}
           >
             <b>its-unscripted</b> – your digital home for authentic voices, untold stories, and fresh perspectives. Here, every post is crafted with passion, curiosity, and a dash of chaos. Whether you&apos;re a coder, a creator, or a culture enthusiast, you&apos;ll find inspiration, tips, and real talk from people who dare to think differently. <br /><br />
             Join our journey, share your own story, and discover a community where creativity knows no bounds. Ready to explore?
           </p>
           <button
             className={styles.button}
-            style={fontIndex > 0 ? { background: 'linear-gradient(90deg, #c084fc 0%, #f472b6 100%)' } : {}}
+            style={{ 
+              fontFamily: fonts[fontIndex], 
+              transition: 'all 0.3s ease',
+              background: fontIndex > 0 ? 'linear-gradient(90deg, #c084fc 0%, #f472b6 100%)' : undefined
+            }}
             onClick={handlePublish}
           >
             Publish

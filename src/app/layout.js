@@ -1,6 +1,6 @@
 import Navbar from "../components/navbar/Navbar";
 import "./globals.css";
-import { Inter } from "next/font/google";
+import { Inter, Merriweather, Lora, Roboto_Slab, Playfair_Display, Montserrat, Libre_Baskerville } from "next/font/google";
 import Footer from "../components/footer/Footer";
 import { ThemeContextProvider } from "../context/ThemeContext";
 import ThemeProvider from "../providers/ThemeProvider";
@@ -9,6 +9,12 @@ import Head from "next/head";
 import { Analytics } from "@vercel/analytics/react";
 
 const inter = Inter({ subsets: ["latin"] });
+const merriweather = Merriweather({ weight: ["300", "400", "700"], subsets: ["latin"], variable: "--font-merriweather" });
+const lora = Lora({ weight: ["400", "500", "600", "700"], subsets: ["latin"], variable: "--font-lora" });
+const robotoSlab = Roboto_Slab({ weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"], subsets: ["latin"], variable: "--font-roboto-slab" });
+const playfairDisplay = Playfair_Display({ weight: ["400", "500", "600", "700", "800", "900"], subsets: ["latin"], variable: "--font-playfair-display" });
+const montserrat = Montserrat({ weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"], subsets: ["latin"], variable: "--font-montserrat" });
+const libreBaskerville = Libre_Baskerville({ weight: ["400", "700"], subsets: ["latin"], variable: "--font-libre-baskerville" });
 
 export const metadata = {
   title: "UnScripted",
@@ -78,7 +84,7 @@ export default function RootLayout({ children }) {
           }}
         />
       </Head>
-      <body className={inter.className}>
+      <body className={`${inter.className} ${merriweather.variable} ${lora.variable} ${robotoSlab.variable} ${playfairDisplay.variable} ${montserrat.variable} ${libreBaskerville.variable}`}>
         <AuthProvider>
           <ThemeContextProvider>
             <ThemeProvider>
