@@ -20,11 +20,19 @@ export default function ContactPage() {
       message: form.message.value,
     };
     try {
-      await new Promise((res) => setTimeout(res, 1200));
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+      if (!res.ok) {
+        const errData = await res.json();
+        throw new Error(errData.error || "Failed to send message");
+      }
       setSubmitted(true);
       form.reset();
     } catch (err) {
-      setError("Something went wrong. Please try again.");
+      setError(err.message || "Something went wrong. Please try again.");
     } finally {
       setLoading(false);
     }
