@@ -1,0 +1,58 @@
+.aboutContainer {
+  max-width: 480px;
+  margin: 64px auto;
+  background: #fff;
+  border-radius: 24px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.10);
+  padding: 40px 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+.logo {
+  border-radius: 50%;
+  margin-bottom: 8px;
+  box-shadow: 0 2px 8px rgba(80,80,120,0.10);
+}
+.aboutTitle {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #c026d3;
+  text-align: center;
+  margin-bottom: 8px;
+}
+.aboutDesc {
+  color: #6b7280;
+  text-align: center;
+  margin-bottom: 12px;
+}
+.teamSection {
+  background: #fafafa;
+  border-radius: 16px;
+  padding: 18px 16px;
+  width: 100%;
+  box-shadow: 0 2px 8px rgba(80,80,120,0.06);
+  margin-top: 8px;
+}
+.teamTitle {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #a21caf;
+  margin-bottom: 6px;
+  text-align: center;
+}
+.teamDesc {
+  color: #444;
+  text-align: center;
+  font-size: 1rem;
+}
+@media (max-width: 600px) {
+  .aboutContainer {
+    padding: 20px 6px;
+    border-radius: 14px;
+  }
+  .aboutTitle {
+    font-size: 1.3rem;
+  }
+} 

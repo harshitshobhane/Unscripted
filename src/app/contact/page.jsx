@@ -1,12 +1,91 @@
 "use client";
-import ContactFormDemo from "../../components/ui/contact-form-demo";
+import { useState } from "react";
+import { Mail, User, MessageCircle } from "lucide-react";
+import styles from "./contactPage.module.css";
 
 export default function ContactPage() {
+  const [loading, setLoading] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState("");
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setError("");
+    setSubmitted(false);
+    const form = e.currentTarget;
+    const data = {
+      name: form.name.value,
+      email: form.email.value,
+      message: form.message.value,
+    };
+    try {
+      await new Promise((res) => setTimeout(res, 1200));
+      setSubmitted(true);
+      form.reset();
+    } catch (err) {
+      setError("Something went wrong. Please try again.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
-    <div className="min-h-screen flex flex-col bg-gradient-to-br from-pink-50 to-purple-100 dark:from-gray-900 dark:to-gray-800">
-      <div className="flex-1 flex items-center justify-center py-12 px-4">
-        <ContactFormDemo />
-      </div>
+    <div className={styles.contactContainer}>
+      <h2 className={styles.contactTitle}>Contact Us</h2>
+      <p className={styles.contactDesc}>We'd love to hear from you! Fill out the form below and we'll get back to you soon.</p>
+      {submitted && (
+        <div className={styles.successMsg}>
+          Thank you! Your message has been sent.
+        </div>
+      )}
+      {error && (
+        <div className={styles.errorMsg}>
+          {error}
+        </div>
+      )}
+      <form className={styles.contactForm} onSubmit={handleSubmit}>
+        <div className={styles.inputGroup}>
+          <User className={styles.inputIcon} size={20} />
+          <input
+            id="name"
+            name="name"
+            type="text"
+            required
+            placeholder="Name"
+            className={styles.contactInput}
+          />
+        </div>
+        <div className={styles.inputGroup}>
+          <Mail className={styles.inputIcon} size={20} />
+          <input
+            id="email"
+            name="email"
+            type="email"
+            required
+            placeholder="Email"
+            className={styles.contactInput}
+          />
+        </div>
+        <div className={styles.inputGroup}>
+          <MessageCircle className={styles.inputIcon} size={20} />
+          <textarea
+            id="message"
+            name="message"
+            required
+            rows={4}
+            placeholder="Message"
+            className={styles.contactTextarea}
+          />
+        </div>
+        <button
+          className={styles.contactButton}
+          type="submit"
+          disabled={loading}
+        >
+          {loading ? "Sending..." : "Send Message"}
+        </button>
+      </form>
     </div>
   );
-}
+}  
