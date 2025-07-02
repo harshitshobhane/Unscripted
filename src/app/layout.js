@@ -18,10 +18,10 @@ export const metadata = {
     description: "The best blog app!",
     images: [
       {
-        url: "/thumbnail.png",
+        url: "/logo.png",
         width: 1200,
         height: 630,
-        alt: "UnScripted Blog Thumbnail",
+        alt: "UnScripted Blog Logo",
       },
     ],
     type: "website",
@@ -34,8 +34,8 @@ export const metadata = {
     description: "The best blog app!",
     images: [
       {
-        url: "/thumbnail.png",
-        alt: "UnScripted Blog Thumbnail",
+        url: "/logo.png",
+        alt: "UnScripted Blog Logo",
       },
     ],
   },
@@ -46,6 +46,10 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <Head>
         <link rel="icon" href="/logo.ico" />
+        <meta property="og:image" content="/logo.png" />
+        <meta property="og:image:alt" content="UnScripted Blog Logo" />
+        <meta name="twitter:image" content="/logo.png" />
+        <meta name="twitter:card" content="summary_large_image" />
       </Head>
       <body className={inter.className}>
         <AuthProvider>
