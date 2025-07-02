@@ -21,11 +21,6 @@ const Featured = () => {
     setFontIndex((prev) => (prev + 1) % fonts.length);
   };
 
-  const isDark =
-    typeof window !== "undefined" &&
-    window.matchMedia &&
-    window.matchMedia('(prefers-color-scheme: dark)').matches;
-
   return (
     <div className={styles.container}>
       <h1 className={styles.title}>
@@ -50,18 +45,7 @@ const Featured = () => {
             </svg>
           </div>
         </div>
-        <div
-          className={styles.featureTextWrap}
-          style={{
-            background: isDark ? "rgba(0,0,0,0.92)" : "rgba(255,255,255,0.85)",
-            boxShadow: isDark
-              ? "0 2px 12px rgba(0,0,0,0.18)"
-              : "0 2px 12px rgba(80,80,120,0.06)",
-            borderRadius: 20,
-            padding: "32px 28px",
-            transition: "background 0.3s"
-          }}
-        >
+        <div className={styles.featureTextWrap}>
           <h1 className={styles.postTitle}>Unleashing Creativity, One Story at a Time</h1>
           <p
             className={styles.postDesc}
