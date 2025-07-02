@@ -366,3 +366,22 @@
   transform: translateY(-2px) scale(1.06);
   box-shadow: 0 4px 24px #fbbf24a0;
 }
+
+:global(body.dark) .featureCard {
+  background: #000 !important;
+  border: 1.5px solid #232336 !important;
+  box-shadow: 0 2px 24px rgba(0,0,0,0.32) !important;
+  color: #fff !important;
+  opacity: 1 !important;
+}
+:global(.dark) .postDesc,
+:global(.dark) .subtitle {
+  color: #fff !important;
+}
+:global(.dark) .button {
+  background: linear-gradient(90deg, #a78bfa 0%, #f472b6 100%);
+  color: #fff;
+}
+:global(.dark) .button:hover, :global(.dark) .button:focus {
+  background: linear-gradient(90deg, #f472b6 0%, #a78bfa 100%);
+}
