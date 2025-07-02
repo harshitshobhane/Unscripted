@@ -10,7 +10,7 @@ const Navbar = () => {
     <div className={styles.container}>
       <AuthLinks />
       <div className={styles.center}>
-        <Link href="/" className={styles.logo}>UnScripted</Link>
+        <Link href="/" className={styles.logo}>its-unscripted</Link>
       </div>
       <div className={styles.right}>
         <Link href="/write" className={styles.link}>Write</Link>

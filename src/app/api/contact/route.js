@@ -15,7 +15,7 @@ export async function POST(req) {
     });
 
     await transporter.sendMail({
-      from: `"Unscripted Contact" <${process.env.SMTP_USER}>`,
+      from: `"its-unscripted Contact" <${process.env.SMTP_USER}>`,
       to: "harshitshobhane348@gmail.com",
       subject: `New Contact Form Submission from ${name}`,
       text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`,

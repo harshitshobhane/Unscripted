@@ -35,7 +35,7 @@ export const metadata = {
     images: [
       {
         url: "/logo.png",
-        alt: "UnScripted Blog Logo",
+          alt: "UnScripted Blog Logo",
       },
     ],
   },
@@ -46,10 +46,37 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <Head>
         <link rel="icon" href="/logo.ico" />
+        <meta name="description" content="The best blog app!" />
+        <meta name="author" content="UnScripted Team" />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://itsunscripted.vercel.app/" />
+        <meta property="og:title" content="UnScripted" />
+        <meta property="og:description" content="The best blog app!" />
         <meta property="og:image" content="/logo.png" />
         <meta property="og:image:alt" content="UnScripted Blog Logo" />
-        <meta name="twitter:image" content="/logo.png" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://itsunscripted.vercel.app/" />
         <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="UnScripted" />
+        <meta name="twitter:description" content="The best blog app!" />
+        <meta name="twitter:image" content="/logo.png" />
+        <meta name="twitter:url" content="https://itsunscripted.vercel.app/" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              "name": "UnScripted",
+              "url": "https://itsunscripted.vercel.app/",
+              "potentialAction": {
+                "@type": "SearchAction",
+                "target": "https://itsunscripted.vercel.app/search?q={search_term_string}",
+                "query-input": "required name=search_term_string"
+              }
+            }),
+          }}
+        />
       </Head>
       <body className={inter.className}>
         <AuthProvider>

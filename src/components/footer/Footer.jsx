@@ -9,10 +9,10 @@ const Footer = () => {
       <div className={styles.info}>
         <div className={styles.logo}>
           <Image src="/logo.png" alt="lama blog" width={50} height={50} />
-          <h1 className={styles.logoText}>UnScripted</h1>
+          <h1 className={styles.logoText}>its-unscripted</h1>
         </div>
         <p className={styles.desc}>
-          Welcome to UnScripted ~ where bugs are just features in disguise, coffee is our primary fuel, and every post is crafted with a dash of chaos and a sprinkle of genius. Join us for code, culture, and the occasional meme. Stay curious, stay caffeinated!
+          Welcome to its-unscripted ~ where bugs are just features in disguise, coffee is our primary fuel, and every post is crafted with a dash of chaos and a sprinkle of genius. Join us for code, culture, and the occasional meme. Stay curious, stay caffeinated!
         </p>
         <div className={styles.icons}>
           <Link href="https://www.linkedin.com/in/harshitshobhane" target="_blank" rel="noopener noreferrer">

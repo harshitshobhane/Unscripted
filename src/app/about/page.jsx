@@ -16,7 +16,7 @@ export default function AboutPage() {
           transition={{ delay: 0.2, duration: 0.6, type: "spring" }}
           className="text-4xl font-extrabold text-purple-700 dark:text-purple-300 mb-4 text-center tracking-tight"
         >
-          About Unscripted
+          About its-unscripted
         </motion.h1>
         <motion.p
           initial={{ opacity: 0, y: 20 }}
@@ -24,7 +24,7 @@ export default function AboutPage() {
           transition={{ delay: 0.4, duration: 0.7 }}
           className="text-lg text-gray-700 dark:text-gray-200 text-center mb-4"
         >
-          <span className="font-semibold text-purple-500 dark:text-purple-300">Unscripted</span> is a vibrant digital space for authentic stories, fresh perspectives, and creative ideas. We believe in the power of real voices and the beauty of unscripted moments.
+          <span className="font-semibold text-purple-500 dark:text-purple-300">its-unscripted</span> is a vibrant digital space for authentic stories, fresh perspectives, and creative ideas. We believe in the power of real voices and the beauty of its-unscripted moments.
         </motion.p>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
