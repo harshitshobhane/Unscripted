@@ -7,6 +7,7 @@ export const GET = async (req) => {
 
   const page = searchParams.get("page");
   const cat = searchParams.get("cat");
+  const user = searchParams.get("user");
 
   const POST_PER_PAGE = 2;
 
@@ -15,16 +16,10 @@ export const GET = async (req) => {
     skip: POST_PER_PAGE * (page - 1),
     where: {
       ...(cat && { catSlug: cat }),
+      ...(user && { userEmail: user }),
     },
   };
 
-
-
-
-
-
-  
-  
   try {
     const [posts, count] = await prisma.$transaction([
       prisma.post.findMany(query),
@@ -38,15 +33,6 @@ export const GET = async (req) => {
     );
   }
 };
-
-
-
-
-
-
-
-
-
 
 // CREATE A POST
 export const POST = async (req) => {
