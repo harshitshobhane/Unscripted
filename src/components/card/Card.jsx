@@ -2,7 +2,7 @@ import Image from "next/image";
 import styles from "./card.module.css";
 import Link from "next/link";
 
-const Card = ({ key, item, onDelete }) => {
+const Card = ({ key, item }) => {
   return (
     <div className={styles.container} key={key}>
       {item.img && (
@@ -25,9 +25,6 @@ const Card = ({ key, item, onDelete }) => {
         <Link href={`/posts/${item.slug}`} className={styles.link}>
           Read More
         </Link>
-        {onDelete && (
-          <button onClick={() => onDelete(item.slug)} style={{marginTop: 12, background: '#ef4444', color: '#fff', border: 'none', borderRadius: 4, padding: '6px 16px', cursor: 'pointer'}}>Delete</button>
-        )}
       </div>
     </div>
   );

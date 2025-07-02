@@ -33,7 +33,7 @@ export default function ContactPage() {
   return (
     <div className={styles.contactContainer}>
       <h2 className={styles.contactTitle}>Contact Us</h2>
-      <p className={styles.contactDesc}>We'd love to hear from you! Fill out the form below and we'll get back to you soon.</p>
+      <p className={styles.contactDesc}>We&apos;d love to hear from you! Fill out the form below and we&apos;ll get back to you soon.</p>
       {submitted && (
         <div className={styles.successMsg}>
           Thank you! Your message has been sent.
