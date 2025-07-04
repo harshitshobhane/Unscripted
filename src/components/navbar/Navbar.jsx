@@ -41,7 +41,7 @@ const Navbar = () => {
           </Link>
         )}
         <AuthLinks userMenuOnly showThemeToggleInMenu={isMobile} />
-        {!isMobile && <ThemeToggle />}
+        {(!isMobile && <ThemeToggle />) || (isMobile && status === "unauthenticated" && <ThemeToggle />)}
       </div>
     </div>
   );

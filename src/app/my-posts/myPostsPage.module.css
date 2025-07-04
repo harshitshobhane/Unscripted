@@ -1,0 +1,493 @@
+.container {
+  display: flex;
+  justify-content: center;
+  background: #fff;
+  min-height: 100vh;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  width: 320px;
+  border-right: 1px solid #e5e7eb;
+  min-height: 100vh;
+  padding: 40px 0;
+  align-items: center;
+  background: #fff;
+}
+
+.profileImage {
+  border-radius: 50%;
+  border: 2px solid #e5e7eb;
+  margin-bottom: 16px;
+}
+
+.profileName {
+  font-weight: bold;
+  font-size: 1.5rem;
+  margin-bottom: 4px;
+  text-align: center;
+}
+
+.profileEmail {
+  color: #6b7280;
+  font-size: 0.95rem;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.editProfile {
+  color: #16a34a;
+  font-size: 0.95rem;
+  text-decoration: none;
+  margin-bottom: 32px;
+  transition: color 0.2s;
+}
+.editProfile:hover {
+  text-decoration: underline;
+  color: #15803d;
+}
+
+.main {
+  flex: 1;
+  max-width: 700px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 48px 24px;
+}
+
+.tabs {
+  display: flex;
+  gap: 32px;
+  border-bottom: 1px solid #e5e7eb;
+  margin-bottom: 32px;
+}
+
+.tab {
+  padding-bottom: 8px;
+  font-weight: 500;
+  font-size: 1.1rem;
+  color: #6b7280;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.tabActive {
+  color: #111827;
+  border-bottom: 2px solid #111827;
+}
+
+.readingListTitle {
+  font-size: 1.4rem;
+  font-weight: bold;
+  margin-bottom: 24px;
+}
+
+.noStories {
+  color: #9ca3af;
+  font-size: 1.1rem;
+}
+
+.cardList {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.card {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 24px;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 24px;
+  background: #fff;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.03);
+}
+
+.cardImage {
+  border-radius: 8px;
+  object-fit: cover;
+  width: 120px;
+  height: 80px;
+}
+
+.cardContent {
+  flex: 1;
+}
+
+.cardTitle {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 4px;
+  text-decoration: none;
+}
+.cardTitle:hover {
+  text-decoration: underline;
+}
+
+.cardDate {
+  color: #6b7280;
+  font-size: 0.85rem;
+  margin-bottom: 8px;
+}
+
+.cardDesc {
+  color: #374151;
+  font-size: 0.98rem;
+  margin-bottom: 8px;
+}
+
+.cardActions {
+  display: flex;
+  gap: 16px;
+  margin-top: 8px;
+}
+
+.cardEdit {
+  color: #2563eb;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.cardEdit:hover {
+  text-decoration: underline;
+  color: #1d4ed8;
+}
+
+.cardDelete {
+  color: #dc2626;
+  font-size: 0.95rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.cardDelete:hover {
+  text-decoration: underline;
+  color: #b91c1c;
+}
+
+@media (max-width: 900px) {
+  .sidebar {
+    display: none;
+  }
+  .main {
+    max-width: 100%;
+    padding: 32px 8px;
+  }
+}
+
+.themeBox {
+  background: #f6f6f6;
+  border-radius: 16px;
+  padding: 40px;
+  margin: 40px auto;
+  max-width: 700px;
+  color: #222;
+  transition: background 0.2s, color 0.2s;
+}
+.dark .themeBox {
+  background: #18181b;
+  color: #f3f3f3;
+}
+
+.bioEditContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.bioTextarea {
+  width: 100%;
+  max-width: 500px;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+  font-size: 1rem;
+  margin-bottom: 24px;
+  background: #fff;
+  color: #222;
+  transition: background 0.2s, color 0.2s;
+}
+.dark .bioTextarea {
+  background: #23232a;
+  color: #f3f3f3;
+  border: 1px solid #333;
+}
+.bioEditActions {
+  display: flex;
+  gap: 16px;
+  margin-top: 8px;
+}
+.bioCancelBtn {
+  padding: 10px 28px;
+  border-radius: 24px;
+  border: 1px solid #222;
+  background: #fff;
+  font-size: 1.1rem;
+  cursor: pointer;
+  color: #222;
+  transition: background 0.2s, color 0.2s;
+}
+.dark .bioCancelBtn {
+  background: #23232a;
+  color: #f3f3f3;
+  border: 1px solid #888;
+}
+.bioSaveBtn {
+  padding: 10px 28px;
+  border-radius: 24px;
+  border: none;
+  background: #111;
+  color: #fff;
+  font-size: 1.1rem;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.2s, color 0.2s;
+}
+.dark .bioSaveBtn {
+  background: #f3f3f3;
+  color: #18181b;
+}
+.bioPrompt {
+  text-align: center;
+  padding: 60px 20px;
+}
+.bioPromptTitle {
+  font-weight: 600;
+  font-size: 1.3rem;
+  margin-bottom: 16px;
+}
+.bioPromptDesc {
+  color: #222;
+  font-size: 1.05rem;
+  margin-bottom: 32px;
+}
+.dark .bioPromptDesc {
+  color: #f3f3f3;
+}
+.bioGetStartedBtn {
+  padding: 12px 36px;
+  border-radius: 28px;
+  border: 1px solid #222;
+  background: #fff;
+  font-size: 1.15rem;
+  cursor: pointer;
+  color: #222;
+  transition: background 0.2s, color 0.2s;
+}
+.dark .bioGetStartedBtn {
+  background: #23232a;
+  color: #f3f3f3;
+  border: 1px solid #888;
+}
+.bioDisplayRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 40px 0 60px 0;
+  padding: 0;
+  max-width: 900px;
+  gap: 24px;
+}
+@media (max-width: 700px) {
+  .bioDisplayRow {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    margin: 32px 0 40px 0;
+    max-width: 100%;
+  }
+}
+.bioDisplayText {
+  font-size: 2rem;
+  font-weight: 500;
+  margin-left: 0;
+  text-align: left;
+  line-height: 1.3;
+  white-space: pre-line;
+  color: #222;
+  transition: color 0.2s;
+}
+.dark .bioDisplayText {
+  color: #f3f3f3;
+}
+.bioEditBtn {
+  padding: 10px 28px;
+  border-radius: 24px;
+  border: 1px solid #222;
+  background: #fff;
+  font-size: 1.1rem;
+  cursor: pointer;
+  margin-left: 32px;
+  color: #222;
+  transition: background 0.2s, color 0.2s;
+}
+.dark .bioEditBtn {
+  background: #23232a;
+  color: #f3f3f3;
+  border: 1px solid #888;
+}
+@media (max-width: 700px) {
+  .bioEditBtn {
+    margin-left: 0;
+    width: 100%;
+  }
+  .bioDisplayText {
+    font-size: 1.2rem;
+  }
+  .themeBox {
+    padding: 20px 8px;
+    max-width: 100%;
+  }
+}
+
+.profileImageBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 16px;
+}
+.profileImageCircle {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: #222;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.dark .profileImageCircle {
+  background: #f3f3f3;
+}
+.profileInitial {
+  color: #fff;
+  font-size: 2.5rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+.dark .profileInitial {
+  color: #18181b;
+}
+@media (max-width: 700px) {
+  .sidebar {
+    display: none;
+  }
+}
+.profileName {
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 2px;
+}
+.profileEmail {
+  color: #888;
+  font-size: 1.1rem;
+  text-align: center;
+  margin-bottom: 12px;
+}
+.editProfile {
+  color: #16a34a;
+  font-size: 1.05rem;
+  text-align: center;
+  text-decoration: none;
+  margin-bottom: 8px;
+  display: block;
+  transition: color 0.2s;
+}
+.editProfile:hover {
+  text-decoration: underline;
+  color: #15803d;
+}
+
+.cardPreviewBox {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: #f3f3f3;
+  border-radius: 12px;
+  padding: 18px 18px 14px 18px;
+  margin-right: 12px;
+  min-width: 0;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+.cardPreviewBox:hover {
+  background: #e5e7eb;
+}
+.dark .cardPreviewBox {
+  background: #23232a;
+}
+.dark .cardPreviewBox:hover {
+  background: #18181b;
+}
+.cardPreviewTitle {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #18181b;
+  margin-bottom: 4px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.dark .cardPreviewTitle {
+  color: #f3f3f3;
+}
+.cardPreviewDate {
+  color: #888;
+  font-size: 0.95rem;
+  margin-bottom: 8px;
+}
+.cardPreviewDesc {
+  color: #444;
+  font-size: 1rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.dark .cardPreviewDesc {
+  color: #ccc;
+}
+.cardActions {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  margin-top: 0;
+}
+.cardIconBtn {
+  background: none;
+  border: none;
+  padding: 6px;
+  border-radius: 6px;
+  cursor: pointer;
+  color: #888;
+  transition: background 0.2s, color 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cardIconBtn:hover {
+  background: #e5e7eb;
+  color: #dc2626;
+}
+.dark .cardIconBtn:hover {
+  background: #23232a;
+  color: #f87171;
+}
+@media (max-width: 900px) {
+  .cardPreviewBox {
+    padding: 12px 10px 10px 10px;
+    margin-right: 0;
+  }
+  .cardPreviewTitle {
+    font-size: 1rem;
+  }
+  .cardPreviewDesc {
+    font-size: 0.95rem;
+  }
+} 

@@ -648,33 +648,53 @@ body.dark .sendBtn:hover, body.dark .sendBtn:focus {
 }
 
 /* Responsive: reduce indentation and padding on small screens */
-@media (max-width: 600px) {
-  .container {
-    max-width: 100%;
-    padding: 0 4px;
-  }
-  .commentCard, .comment {
-    max-width: 100%;
-    width: 100%;
-    margin-left: 0;
-    margin-right: 0;
+@media (max-width: 900px) {
+  .comment {
+    padding: 12px 8px;
+    font-size: 0.98rem;
   }
   .comment .comment {
-    margin-left: 10px;
-    margin-top: 10px;
-    border-radius: 0;
-    width: calc(100% - 10px);
-    padding-left: 10px;
-    border-left: 2px solid #7c3aed;
-    background: #fff;
-    border: none;
+    margin-left: 18px;
+    padding: 8px 4px;
   }
-  .commentContent {
-    gap: 4px;
+  .userImageWrap {
+    width: 36px;
+    height: 36px;
+  }
+  .username {
+    font-size: 1rem;
+  }
+  .desc {
+    font-size: 0.98rem;
   }
   .sendBtn, .toolbarBtn {
-    font-size: 0.95rem;
+    font-size: 0.98rem;
     padding: 4px 10px;
+  }
+}
+
+@media (max-width: 600px) {
+  .comment {
+    padding: 8px 2px;
+    font-size: 0.93rem;
+  }
+  .comment .comment {
+    margin-left: 8px;
+    padding: 4px 2px;
+  }
+  .userImageWrap {
+    width: 28px;
+    height: 28px;
+  }
+  .username {
+    font-size: 0.93rem;
+  }
+  .desc {
+    font-size: 0.93rem;
+  }
+  .sendBtn, .toolbarBtn {
+    font-size: 0.93rem;
+    padding: 3px 7px;
   }
 }
 
