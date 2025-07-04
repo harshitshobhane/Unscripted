@@ -3,12 +3,13 @@ import Link from "next/link";
 import styles from "./authLinks.module.css";
 import { useState, useRef, useEffect } from "react";
 import { signOut, useSession } from "next-auth/react";
+import ThemeToggle from "../../components/themeToggle/ThemeToggle";
 
 const UserIcon = () => (
   <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={styles.profileIcon}><circle cx="12" cy="8" r="4"/><path d="M6 20c0-2.2 3.6-4 6-4s6 1.8 6 4"/></svg>
 );
 
-const AuthLinks = ({ userMenuOnly = false }) => {
+const AuthLinks = ({ userMenuOnly = false, showThemeToggleInMenu = false }) => {
   const [open, setOpen] = useState(false);
   const [dropdown, setDropdown] = useState(false);
   const dropdownRef = useRef(null);
@@ -54,6 +55,12 @@ const AuthLinks = ({ userMenuOnly = false }) => {
             <div className={styles.dropdownMenu} ref={dropdownRef}>
               <Link href="/my-posts" className={styles.dropdownItem}>My Posts</Link>
               <button className={styles.dropdownItem} onClick={() => signOut()}>Logout</button>
+              {/* ThemeToggle for mobile only */}
+              {showThemeToggleInMenu && (
+                <div className={styles.dropdownItem} style={{ justifyContent: 'center', display: 'flex' }}>
+                  <ThemeToggle />
+                </div>
+              )}
             </div>
           )}
         </div>

@@ -65,6 +65,12 @@ model Category {
   Posts Post[]
 }
 
+// Embedded type for blog likes/dislikes
+type BlogVote {
+  email String
+  value Int // 1 for like, -1 for dislike
+}
+
 model Post {
   id        String    @id @default(cuid()) @map("_id")
   createdAt DateTime  @default(now())
@@ -78,6 +84,7 @@ model Post {
   userEmail String
   user      User      @relation(fields: [userEmail], references: [email])
   comments  Comment[]
+  blogVotes BlogVote[]
 }
 
 model Comment {
@@ -88,4 +95,14 @@ model Comment {
   user      User     @relation(fields: [userEmail], references: [email])
   postSlug  String
   post      Post     @relation(fields: [postSlug], references: [slug])
+  votes     Vote[]
+  parentId  String?  // For replies
+  parent    Comment? @relation("CommentToComment", fields: [parentId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  children  Comment[] @relation("CommentToComment")
+}
+
+// Embedded type for votes
+type Vote {
+  email String
+  value Int // 1 for upvote, -1 for downvote
 }

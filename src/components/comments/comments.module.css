@@ -1,5 +1,8 @@
 .container {
   margin-top: 50px;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .title {
@@ -29,12 +32,102 @@
   cursor: pointer;
 }
 
-.comments{
+.comments {
   margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  align-items: stretch;
 }
 
-.comment{
-  margin-bottom: 50px;
+.commentCard, .comment {
+  max-width: 100%;
+  width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.comment {
+  background: #18181b;
+  border: 2px solid #fff;
+  border-radius: 12px;
+  padding: 18px 24px 18px 24px;
+  box-shadow: 0 2px 12px #0002;
+  display: flex;
+  flex-direction: row;
+  gap: 18px;
+  position: relative;
+  align-items: flex-start;
+  margin-bottom: 0;
+  color: #f3f3f3;
+}
+
+.comment .comment {
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  background: none !important;
+  margin-top: 24px;
+  padding: 0;
+  margin-left: 40px;
+}
+
+.username {
+  font-weight: 600;
+  color: #fff;
+  font-size: 1.08rem;
+}
+
+.date {
+  font-size: 13px;
+  color: #b0b0b0;
+}
+
+.desc {
+  font-size: 17px;
+  font-weight: 400;
+  color: #e5e5e5;
+}
+
+.comment + .comment {
+  margin-top: 24px;
+}
+
+.upvoteBtn, .downvoteBtn {
+  background: none;
+  border: none;
+  color: #b0b0b0;
+  font-size: 1.3rem;
+  cursor: pointer;
+  padding: 2px 4px;
+  border-radius: 6px;
+  transition: background 0.15s, color 0.15s;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.upvoteBtn:hover, .downvoteBtn:hover {
+  background: #23232a;
+  color: #7c3aed;
+}
+
+.upvoteCount {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #a78bfa;
+  min-width: 24px;
+  text-align: center;
+  margin: 2px 0 2px 9px;
+}
+
+.commentContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
 .user {
@@ -56,15 +149,600 @@
   color: var(--softTextColor);
 }
 
-.username {
+.heading {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 24px;
+  color: #fff;
+}
+
+.commentCard {
+  background: #000 !important;
+  border: 2px solid #000 !important;
+  border-radius: 12px;
+  padding: 0 0 0.5rem 0;
+  margin-bottom: 32px;
+  box-shadow: 0 2px 16px #0002;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  gap: 18px;
+  background: #202024;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  border-bottom: 1px solid #23232a;
+  padding: 0.7rem 1.2rem 0.7rem 1.2rem;
+  min-height: 48px;
+  box-sizing: border-box;
+}
+
+.toolbarBtn {
+  background: none;
+  border: none;
+  color: #e5e5e5;
+  font-size: 1.35rem;
+  cursor: pointer;
+  padding: 6px 10px;
+  border-radius: 6px;
+  transition: background 0.15s, color 0.15s, box-shadow 0.15s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.toolbarBtn:hover, .toolbarBtn:focus {
+  background: #23283a;
+  color: #a78bfa;
+  box-shadow: 0 2px 8px #a78bfa22;
+}
+
+.input {
+  background: transparent;
+  border: none;
+  color: #e5e5e5;
+  font-size: 1.1rem;
+  padding: 18px 18px 0 18px;
+  min-height: 60px;
+  resize: none;
+  outline: none;
+  width: 100%;
+}
+
+.input::placeholder {
+  color: #a6a6a6;
+  font-size: 1.1rem;
+}
+
+.sendRow {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0 18px 18px 18px;
+}
+
+.sendBtn {
+  background: #fff;
+  color: #18181b;
+  border: none;
+  border-radius: 16px;
+  padding: 8px 22px 8px 16px;
+  font-size: 1rem;
   font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+  transition: background 0.18s, color 0.18s;
 }
 
-.date{
-  font-size: 14px;
+.sendBtn:hover, .sendBtn:focus {
+  background: #ece9f6;
+  color: #7c3aed;
 }
 
-.desc{
-  font-size: 18px;
-  font-weight: 300;
+body.dark .commentCard {
+  background: #000 !important;
+  border-color: #23283a;
+  border: 2px solid #000 !important;
+}
+
+body.dark .toolbarBtn:hover, body.dark .toolbarBtn:focus {
+  background: #23283a;
+  color: #a78bfa;
+}
+
+body.dark .sendBtn {
+  background: #23283a;
+  color: #fff;
+}
+
+body.dark .sendBtn:hover, body.dark .sendBtn:focus {
+  background: #23283a;
+  color: #a78bfa;
+}
+
+.toolbarWrapper {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.activeBtn {
+  background: #a78bfa !important;
+  color: #fff !important;
+  box-shadow: 0 2px 8px #a78bfa33;
+}
+
+.quillToolbar {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  background: #202024;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  border-bottom: 1px solid #23232a;
+  padding: 0.7rem 1.2rem 0.7rem 1.2rem;
+  min-height: 48px;
+  box-sizing: border-box;
+  width: 100%;
+  position: relative;
+}
+
+.toolbarGroup {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  background: none;
+  border-radius: 8px;
+  padding: 0;
+  margin: 0;
+  position: relative;
+}
+
+.ql-toolbar {
+  background: #202024 !important;
+  border: none !important;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  padding: 0.7rem 1.2rem 0.7rem 1.2rem;
+  min-height: 48px;
+  box-sizing: border-box;
+  width: 100%;
+  color: #e5e5e5;
+}
+
+.ql-toolbar button {
+  background: none !important;
+  border: none !important;
+  color: #e5e5e5 !important;
+  font-size: 1.35rem !important;
+  cursor: pointer;
+  padding: 6px 10px !important;
+  border-radius: 6px !important;
+  transition: background 0.15s, color 0.15s, box-shadow 0.15s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ql-toolbar button:hover, .ql-toolbar button.ql-active {
+  background: #23283a !important;
+  color: #a78bfa !important;
+  box-shadow: 0 2px 8px #a78bfa22;
+}
+
+.emojiBtn {
+  background: none;
+  border: none;
+  color: #e5e5e5;
+  font-size: 1.35rem;
+  cursor: pointer;
+  padding: 6px 10px;
+  border-radius: 6px;
+  transition: background 0.15s, color 0.15s, box-shadow 0.15s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.emojiBtn:hover, .emojiBtn:focus {
+  background: #23283a;
+  color: #a78bfa;
+  box-shadow: 0 2px 8px #a78bfa22;
+}
+
+.emojiPickerWrap {
+  position: absolute;
+  top: 40px;
+  left: 0;
+  z-index: 100;
+}
+
+.quillWrapper {
+  background: transparent;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+  overflow: hidden;
+  width: 100%;
+  max-width: 100%;
+}
+
+.quillEditor {
+  width: 100%;
+  max-width: 100%;
+}
+
+.quillEditor .ql-container {
+  background: transparent;
+  color: #e5e5e5;
+  border: none;
+  font-size: 1.1rem;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+  min-height: 80px;
+  max-height: 240px;
+  overflow-y: auto;
+}
+
+.quillEditor .ql-editor {
+  background: transparent;
+  color: #e5e5e5;
+  min-height: 80px;
+  max-height: 240px;
+  font-size: 1.1rem;
+  padding: 0;
+  border: none;
+  overflow-y: auto;
+  resize: none;
+}
+
+.toolbarRow {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  background: #202024;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  border-bottom: 1px solid #23232a;
+  padding: 0.7rem 1.2rem 0.7rem 1.2rem;
+  min-height: 48px;
+  box-sizing: border-box;
+  width: 100%;
+  position: relative;
+}
+.emojiBtnWrap {
+  display: flex;
+  align-items: center;
+  margin-left: 12px;
+  position: relative;
+}
+
+.textarea {
+  width: 100%;
+  background: transparent;
+  color: #e5e5e5;
+  border: none;
+  border-radius: 0 0 12px 12px;
+  font-size: 1.1rem;
+  padding: 18px 18px 0 18px;
+  min-height: 80px;
+  max-height: 240px;
+  resize: vertical;
+  outline: none;
+  margin-bottom: 0;
+  box-sizing: border-box;
+  transition: border 0.18s;
+}
+.textarea:focus {
+  border-color: unset;
+}
+.textarea::placeholder {
+  color: #a6a6a6;
+  font-size: 1.1rem;
+  font-style: italic;
+}
+
+.textarea.warning {
+  border: 1.5px solid #ff5a5a !important;
+  background: #2a1818 !important;
+}
+
+.userImageWrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg, #fff);
+  border-radius: 50%;
+  border: 2px solid var(--softBg, #e5e7eb);
+  width: 50px;
+  height: 50px;
+  overflow: hidden;
+}
+
+.commentMenuWrap {
+  position: relative;
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+}
+.menuBtn {
+  background: none;
+  border: none;
+  color: #a6a6a6;
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 6px;
+  transition: background 0.15s, color 0.15s;
+}
+.menuBtn:hover, .menuBtn:focus {
+  background: #23283a;
+  color: #a78bfa;
+}
+.menuDropdown {
+  position: absolute;
+  top: 32px;
+  right: 0;
+  background: var(--bg, #18181b);
+  border: 1px solid #23232a;
+  border-radius: 8px;
+  box-shadow: 0 2px 12px #0005;
+  z-index: 10;
+  min-width: 90px;
+  padding: 6px 0;
+  display: flex;
+  flex-direction: column;
+}
+.deleteBtn {
+  background: none;
+  border: none;
+  color: #ff5a5a;
+  font-weight: 500;
+  font-size: 1rem;
+  padding: 8px 16px;
+  text-align: left;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: background 0.15s;
+}
+.deleteBtn:hover, .deleteBtn:focus {
+  background: #2a1818;
+}
+
+:global(.light) .userImageWrap {
+  background: #fff;
+  border: 2px solid #e5e7eb;
+}
+:global(.light) .menuDropdown {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 2px 12px #0002;
+}
+:global(.light) .menuBtn {
+  color: #444;
+}
+:global(.light) .menuBtn:hover, :global(.light) .menuBtn:focus {
+  background: #f3f4f6;
+  color: #a78bfa;
+}
+:global(.light) .deleteBtn {
+  color: #ef4444;
+}
+:global(.light) .deleteBtn:hover, :global(.light) .deleteBtn:focus {
+  background: #ffeaea;
+}
+
+:global(.light) .commentCard {
+  background: #fff !important;
+  border: 2px solid #000 !important;
+  color: #23232a;
+  box-shadow: 0 2px 16px #0001;
+}
+:global(.light) .toolbarRow {
+  background: #f7f7fa;
+  border-bottom: 1px solid #e5e7eb;
+}
+:global(.light) .toolbarBtn {
+  color: #444;
+  background: none;
+}
+:global(.light) .toolbarBtn:hover, :global(.light) .toolbarBtn:focus {
+  background: #e5e7eb;
+  color: #7c3aed;
+}
+:global(.light) .activeBtn {
+  background: #a78bfa !important;
+  color: #fff !important;
+  box-shadow: 0 2px 8px #a78bfa33;
+}
+:global(.light) .textarea {
+  background: #fff;
+  color: #23232a;
+  border: none;
+}
+:global(.light) .textarea:focus {
+  border: none;
+}
+:global(.light) .sendBtn {
+  background: #ece9f6;
+  color: #23232a;
+}
+:global(.light) .sendBtn:hover, :global(.light) .sendBtn:focus {
+  background: #e5e7eb;
+  color: #7c3aed;
+}
+
+:global(.light) .emojiBtn {
+  color: #444;
+  background: none;
+}
+:global(.light) .emojiBtn:hover, :global(.light) .emojiBtn:focus {
+  background: #e5e7eb;
+  color: #7c3aed;
+}
+:global(.light) .emojiPickerWrap {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 2px 12px #0002;
+  border-radius: 12px;
+}
+
+:global(.light) .heading {
+  color: #23232a;
+  background: none;
+}
+
+.textarea:empty:before {
+  content: attr(data-placeholder);
+  color: #888;
+  opacity: 0.7;
+  pointer-events: none;
+  position: absolute;
+  left: 1rem;
+  top: 1rem;
+  font-size: 1rem;
+  font-style: italic;
+}
+
+:global(.light) .textarea:empty:before {
+  color: #aaa;
+}
+
+/* NOTE: To activate light mode styles, ensure the top-level container in Comments.jsx or a parent has className={styles.container + ' ' + (theme === 'light' ? 'light' : '')} or similar. */
+
+.activeVote {
+  color: #fff !important;
+  background: #7c3aed !important;
+  box-shadow: none !important;
+}
+
+:global(.light) .activeVote {
+  color: #fff !important;
+  background: #7c3aed !important;
+  box-shadow: none !important;
+}
+
+/* Nested replies: visually group and indent */
+.comment .comment {
+  margin-left: 0 !important;
+  border-left: none !important;
+  background: none !important;
+  width: 100% !important;
+  padding-left: 0 !important;
+  border-radius: 0 !important;
+  margin-top: 16px !important;
+  box-shadow: none !important;
+}
+
+.comment + .comment {
+  border-top: none;
+  margin-top: 24px;
+  padding-top: 0;
+}
+
+/* Responsive: reduce indentation and padding on small screens */
+@media (max-width: 600px) {
+  .container {
+    max-width: 100%;
+    padding: 0 4px;
+  }
+  .commentCard, .comment {
+    max-width: 100%;
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .comment .comment {
+    margin-left: 10px;
+    margin-top: 10px;
+    border-radius: 0;
+    width: calc(100% - 10px);
+    padding-left: 10px;
+    border-left: 2px solid #7c3aed;
+    background: #fff;
+    border: none;
+  }
+  .commentContent {
+    gap: 4px;
+  }
+  .sendBtn, .toolbarBtn {
+    font-size: 0.95rem;
+    padding: 4px 10px;
+  }
+}
+
+/* Ensure reply input is always below parent comment content */
+.commentContent > .commentCard {
+  margin-top: 10px;
+  margin-bottom: 0;
+  background: none;
+  box-shadow: none;
+  border: none;
+  padding: 0;
+  border-radius: 0;
+}
+
+.replyInputBox {
+  margin-top: 10px;
+  margin-bottom: 0;
+  padding-left: 0;
+  border-left: none;
+  background: none;
+  box-shadow: none;
+  border: none;
+  width: 100%;
+}
+
+/* Add vertical spacing between top-level comments */
+.comments > .comment {
+  margin-bottom: 24px;
+}
+
+:global(.dark) .commentCard {
+  border: 2px solid #fff !important;
+}
+
+:global(.light) .comment {
+  background: #fff;
+  border: 2px solid #000;
+  color: #23232a;
+}
+
+:global(.light) .comment .comment {
+  background: #fff;
+  border: 2px solid #000;
+  color: #23232a;
+  border-radius: 12px;
+  margin-top: 24px;
+}
+
+:global(.light) .username {
+  color: #23232a;
+}
+
+:global(.light) .date {
+  color: #888;
+}
+
+:global(.light) .desc {
+  color: #23232a;
+}
+
+:global(.light) .upvoteBtn, :global(.light) .downvoteBtn {
+  color: #888;
+}
+
+:global(.light) .upvoteBtn:hover, :global(.light) .downvoteBtn:hover {
+  background: #ece9f6;
+  color: #7c3aed;
+}
+:global(.light) .upvoteCount {
+  color: #7c3aed;
 }

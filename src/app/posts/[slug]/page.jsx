@@ -1,7 +1,11 @@
+"use client";
 import Menu from "../../../components/Menu/Menu";
 import styles from "./singlePage.module.css";
 import Image from "next/image";
 import Comments from "../../../components/comments/Comments";
+import { useSession } from "next-auth/react";
+import { useState, useEffect } from "react";
+import { FaThumbsUp, FaThumbsDown } from "react-icons/fa";
 
 const getData = async (slug) => {
   // Use the Vercel-provided URL or fallback to localhost for dev
@@ -22,8 +26,73 @@ const getData = async (slug) => {
 
 const SinglePage = async ({ params }) => {
   const { slug } = params;
-
   const data = await getData(slug);
+
+  // --- Like/Dislike UI (Client Component) ---
+  function LikeDislike() {
+    const { data: session } = useSession();
+    const [likeCount, setLikeCount] = useState(0);
+    const [dislikeCount, setDislikeCount] = useState(0);
+    const [userVote, setUserVote] = useState(0); // 1, -1, or 0
+    const [loading, setLoading] = useState(false);
+
+    useEffect(() => {
+      if (data?.blogVotes) {
+        setLikeCount(data.blogVotes.filter(v => v.value === 1).length);
+        setDislikeCount(data.blogVotes.filter(v => v.value === -1).length);
+        if (session?.user?.email) {
+          const found = data.blogVotes.find(v => v.email === session.user.email);
+          setUserVote(found ? found.value : 0);
+        }
+      }
+    }, [data, session]);
+
+    const handleVote = async (value) => {
+      if (!session) return alert("Login to vote");
+      setLoading(true);
+      try {
+        const res = await fetch(`/api/posts/${slug}`, {
+          method: "PATCH",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ value }),
+        });
+        const result = await res.json();
+        setLikeCount(result.likeCount);
+        setDislikeCount(result.dislikeCount);
+        if (session?.user?.email) {
+          const found = result.blogVotes.find(v => v.email === session.user.email);
+          setUserVote(found ? found.value : 0);
+        }
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    return (
+      <div className={styles.likeDislikeContainer}>
+        <button
+          className={styles.likeBtn + (userVote === 1 ? " " + styles.active : "")}
+          onClick={() => handleVote(1)}
+          disabled={loading}
+          aria-label="Like"
+        >
+          <FaThumbsUp />
+        </button>
+        <span className={styles.likeCount}>{likeCount}</span>
+        <button
+          className={styles.dislikeBtn + (userVote === -1 ? " " + styles.active : "")}
+          onClick={() => handleVote(-1)}
+          disabled={loading}
+          aria-label="Dislike"
+        >
+          <FaThumbsDown />
+        </button>
+        <span className={styles.dislikeCount}>{dislikeCount}</span>
+      </div>
+    );
+  }
+
+  // --- End Like/Dislike UI ---
 
   return (
     <div className={styles.container}>
@@ -60,6 +129,7 @@ const SinglePage = async ({ params }) => {
             className={styles.description}
             dangerouslySetInnerHTML={{ __html: data?.desc }}
           />
+          <LikeDislike />
           <div className={styles.comment}>
             <Comments postSlug={slug}/>
           </div>
